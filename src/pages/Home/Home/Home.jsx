@@ -1,9 +1,15 @@
  import Banner from "../../../components/Navbar/Banner/Banner"
+import Brands from "../Brands/Brands"
+import Reviews from "../Reviews/Reviews"
+
+const reviewPromise = fetch('./reviews.json')
  
 const Home = () => {
   return (
     <div>
         <Banner></Banner>
+        <Brands></Brands>
+        <Reviews reviewPromise={reviewPromise}></Reviews>
     </div>
   )
 }
