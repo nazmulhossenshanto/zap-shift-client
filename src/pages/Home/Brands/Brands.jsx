@@ -21,7 +21,7 @@ const Brands = () => {
       slidesPerView={4}
       centeredSlides={true}
       grabCursor={true}
-      loop={true}
+    //   loop={true}
       modules={[Autoplay]}
       autoplay={{delay:1000, disableOnInteraction: false}}
       

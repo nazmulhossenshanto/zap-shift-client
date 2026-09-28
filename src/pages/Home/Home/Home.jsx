@@ -2,7 +2,7 @@
 import Brands from "../Brands/Brands"
 import Reviews from "../Reviews/Reviews"
 
-const reviewPromise = fetch('./reviews.json')
+const reviewPromise = fetch('./reviews.json').then(res=> res.json())
  
 const Home = () => {
   return (
@@ -14,4 +14,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
