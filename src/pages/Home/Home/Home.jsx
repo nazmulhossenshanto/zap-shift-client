@@ -1,8 +1,9 @@
+ import Banner from "../../../components/Navbar/Banner/Banner"
  
 const Home = () => {
   return (
     <div>
-        <h1>This is home route</h1>
+        <Banner></Banner>
     </div>
   )
 }
