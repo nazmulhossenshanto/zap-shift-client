@@ -1,17 +1,17 @@
- import Banner from "../../../components/Navbar/Banner/Banner"
-import Brands from "../Brands/Brands"
-import Reviews from "../Reviews/Reviews"
+import Banner from "../../../components/Navbar/Banner/Banner";
+import Brands from "../Brands/Brands";
+import Reviews from "../Reviews/Reviews";
 
-const reviewPromise = fetch('./reviews.json').then(res=> res.json())
- 
+const reviewPromise = fetch("./reviews.json").then((res) => res.json());
+
 const Home = () => {
   return (
     <div>
-        <Banner></Banner>
-        <Brands></Brands>
-        <Reviews reviewPromise={reviewPromise}></Reviews>
+      <Banner></Banner>
+      <Brands></Brands>
+      <Reviews reviewPromise={reviewPromise}></Reviews>
     </div>
-  )
-}
+  );
+};
 
 export default Home;
