@@ -17,13 +17,13 @@ const Register = () => {
             }
             <label className="label">Password</label>
             <input {...register('password', {
-                required: true, minLength: 6
+                required: true, minLength: 6, pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
             })} type="password" className="input" placeholder="Password" />
             {
                 errors.password?.type === 'required' && <p className="text-red-500">Password is required</p>
             }
             {
-                errors.password?.type === 'minLength' && <p className="text-red-500">Password must be 6 character or longer</p>
+                errors.password  && <p className="text-red-500">Must include at least one uppercase letter, one lowercase letter, one number .  </p>
             }
 
             <button className="btn btn-neutral mt-4">Login</button>
