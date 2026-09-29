@@ -1,14 +1,19 @@
+import { NavLink } from "react-router";
 import Logo from "../../../shared/Logo/Logo";
 
 const Navbar = () => {
   const links = (
     <>
       <li>
-        <a  >Item 1</a>
+        <NavLink to='/'>Home</NavLink>
       </li>
       <li>
-        <a>Item 2</a>
+        <NavLink to='/service'>Services</NavLink>
       </li>
+      <li>
+        <NavLink to='/coverage'>Coverage</NavLink>
+      </li>
+       
     </>
   );
   return (
