@@ -1,9 +1,18 @@
 import { useForm } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
+  const {registerUser} = useAuth(); 
     const {register, handleSubmit, formState: {errors}} = useForm();
     const handleRegister = (data)=>{
-        console.log('after register', data);
+        registerUser(data.email, data.password)
+        .then(result=>{
+          console.log( 'after register' ,result.user);
+        })
+        .catch(error=>{
+          console.log(error);
+        })
+        
     }
   return (
     <div className="flex justify-center items-center">
@@ -26,7 +35,7 @@ const Register = () => {
                 errors.password  && <p className="text-red-500">Must include at least one uppercase letter, one lowercase letter, one number .  </p>
             }
 
-            <button className="btn btn-neutral mt-4">Login</button>
+            <button className="btn btn-neutral mt-4">Register</button>
           </form>
         </div>
       </div>
