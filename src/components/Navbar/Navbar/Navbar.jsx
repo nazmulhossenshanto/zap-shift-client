@@ -1,7 +1,9 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import Logo from "../../../shared/Logo/Logo";
+import useAuth from '../../../hooks/useAuth'
 
 const Navbar = () => {
+  const {user, signOutUser} = useAuth();
   const links = (
     <>
       <li>
@@ -22,6 +24,15 @@ const Navbar = () => {
        
     </>
   );
+  const handleLogOut = ()=>{
+    signOutUser()
+    .then(()=>{
+      console.log('user logged out successfull');
+    })
+    .catch(error=>{
+      console.log('logout error :', error);
+    })
+  }
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -60,8 +71,12 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-3">
+        {user && <p>{user.email}</p>}
+        {
+          user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <Link>Login</Link>
+        }
+        
       </div>
     </div>
   );
