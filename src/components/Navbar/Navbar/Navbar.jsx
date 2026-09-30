@@ -72,12 +72,24 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
-        {user && <p>{user.email}</p>}
-        {
-          user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <Link>Login</Link>
-        }
-        
-      </div>
+  {user && <p>{user.email}</p>}
+
+  {user ? (
+    <button onClick={handleLogOut} className="btn">
+      Log Out
+    </button>
+  ) : (
+    <>
+      <Link to="/login" className="btn">
+        Login
+      </Link>
+
+      <Link to="/register" className="btn">
+        Register
+      </Link>
+    </>
+  )}
+</div>
     </div>
   );
 };
